@@ -2,6 +2,13 @@ footer {
 
 }
 body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex; /* Use Flexbox to center content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Use full viewport height */
+    text-align: center; /* Center text inside the paragraph */
 
 }
 #header {
@@ -28,11 +35,11 @@ body {
     #header nav a {
         color: white;
         border: 0;
-        display: block;
+        display: inline-block;
         font-size: 0.8em;
         height: inherit;
         line-height: inherit;
-        padding: 0 0.75em;
+        padding: 0 50px;
         position: relative;
         vertical-align: middle;
     }
@@ -57,6 +64,61 @@ body {
         background-color: #9bf1ff;
     }
 
-    #menu {
-        display: flex;
-    }
+#menu {
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    background: rgba(36, 41, 67, 0.9);
+    box-shadow: none;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 3em 2em;
+    position: fixed;
+    top: 0;
+    visibility: hidden;
+    width: 100%;
+    z-index: 10002;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+#menu:target {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto; /* Enable pointer events when visible */
+}
+
+#menu .close {
+    display: block;
+    margin: 20px auto;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Optional styles for links */
+#menu ul.links {
+    list-style: none;
+    padding: 0;
+}
+
+#menu ul.links > li {
+    padding: 0;
+}
+
+#menu ul.links > li > a {
+    color: white;
+    border: 0;
+    border-top: solid 1px rgba(212, 212, 255, 0.1);
+    display: block;
+    font-size: 0.8em;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    line-height: 4em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+#menu ul.links > li:first-child > a {
+    border-top: 0 !important; /* Remove border from the first link */
+}
