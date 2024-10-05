@@ -1,15 +1,9 @@
-footer {
-
-}
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    display: flex; /* Use Flexbox to center content */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    height: 100vh; /* Use full viewport height */
-    text-align: center; /* Center text inside the paragraph */
-
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 #header {
     display: flex;
@@ -86,7 +80,7 @@ body {
 #menu:target {
     visibility: visible;
     opacity: 1;
-    pointer-events: auto; /* Enable pointer events when visible */
+    pointer-events: auto;
 }
 
 #menu .close {
@@ -120,5 +114,93 @@ body {
     text-transform: uppercase;
 }
 #menu ul.links > li:first-child > a {
-    border-top: 0 !important; /* Remove border from the first link */
+    border-top: 0 !important;
+}
+
+#main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+    grid-template-rows: auto auto auto auto auto; /* Define rows */
+    grid-template-areas:
+        "main-content main-content main-content"
+        "item1 item2 item2"
+        "item3 item3 item4"
+        "item5 item6 item6"
+        "footer footer footer";
+    margin-top: 50px; /* Space below the fixed header */
+    height: 100vh;
+    flex-grow: 1;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.main-content {
+    grid-area: main-content;
+    background-color: lightblue;
+    padding: 20px;
+}
+
+.item1 {
+    grid-area: item1;
+    background-color: #6fc3df;
+    padding: 20px;
+}
+
+.item2 {
+    grid-area: item2;
+    background-color: #8d82c4;
+    padding: 20px;
+}
+.item3 {
+    grid-area: item3;
+    background-color: #ec8d81;
+    padding: 20px;
+}
+.item4 {
+    grid-area: item4;
+    background-color: #e7b788;
+    padding: 20px;
+}
+.item5 {
+    grid-area: item5;
+    background-color: #8ea9e8;
+    padding: 20px;
+}
+.item6 {
+    grid-area: item6;
+    background-color: #87c5a4;
+    padding: 20px;
+}
+
+footer {
+    grid-area: footer;
+    background-color: darkslateblue;
+    color: white;
+    height: auto;
+    line-height: 50px;
+    text-align: center;
+}
+
+#main-container > div:hover {
+    background-color: darkgray;
+}
+
+@media (max-width: 768px) {
+    /*Hid the name*/
+    #header .logo {
+        display: none;
+    }
+
+    #header nav a.menu-button {
+        display: inline-block;
+        background-color: darkblue;
+        color: white;
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+    /*show only menu at the middle*/
+    #header nav {
+        display: flex;
+        margin: auto;
+    }
+
 }
