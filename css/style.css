@@ -119,24 +119,47 @@ body {
 
 #main-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
-    grid-template-rows: auto auto auto auto auto; /* Define rows */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto;
     grid-template-areas:
         "main-content main-content main-content"
         "item1 item2 item2"
         "item3 item3 item4"
         "item5 item6 item6"
         "footer footer footer";
-    margin-top: 50px; /* Space below the fixed header */
-    height: 100vh;
+    margin-top: 50px;
+    min-height: 100vh;
     flex-grow: 1;
     transition: background-color 0.3s ease-in-out;
 }
 
 .main-content {
     grid-area: main-content;
-    background-color: lightblue;
-    padding: 20px;
+    background-color: darkslateblue;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    padding: 50px;
+}
+
+.main-content h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    text-underline-offset: 30px;
+}
+
+.main-content p {
+    font-size: 1.2em;
+    letter-spacing: 0.1em;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-top: 20px;
 }
 
 .item1 {
@@ -180,7 +203,7 @@ footer {
     text-align: center;
 }
 
-#main-container > div:hover {
+#main-container > div:not(.main-content):hover {
     background-color: darkgray;
 }
 
@@ -197,10 +220,41 @@ footer {
         padding: 10px 20px;
         font-size: 1em;
     }
-    /*show only menu at the middle*/
     #header nav {
         display: flex;
         margin: auto;
     }
+    @media (max-width: 768px) {
+        #main-container {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            min-height: 100vh;
+        }
 
+        .item1,
+        .item2,
+        .item3,
+        .item4,
+        .item5,
+        .item6 {
+            height: 100%;
+        }
+    }
+}
+
+#main-container .item1 a,
+#main-container .item2 a,
+#main-container .item3 a,
+#main-container .item4 a,
+#main-container .item5 a,
+#main-container .item6 a {
+    font-size: 3em;
+    color: white;
+    text-decoration: underline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 300px;
 }
