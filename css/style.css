@@ -293,7 +293,7 @@ footer {
 #main-container .item5 p,
 #main-container .item6 p {
     color: #ffffff;
-    text-align: center; /* Center the text */
+    text-align: center;
     margin: 0;
 }
 
@@ -308,7 +308,7 @@ footer p {
 }
 
 footer a {
-    color: #ffffff; /* Same color as the rest of the footer content */
+    color: #ffffff;
     text-decoration: none;
 }
 
@@ -317,26 +317,28 @@ footer a:hover {
 }
 
 .other-page-body {
-    background-color: #292f4a; /* A shade darker than the header */
-    color: white; /* To make text readable against the darker background */
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+    background-color: #292f4a;
+    color: white;
     min-height: 100vh;
-    padding-bottom: 50px; /* To avoid footer overlapping */
 }
 
-footer {
+.other-page-footer {
     background-color: darkslateblue;
     color: white;
     padding: 20px;
     text-align: center;
-    margin-top: 20px;
+    margin-top: auto;
 }
 
-footer h1 {
+.other-page-footer h1 {
     font-size: 1.5em;
     margin-bottom: 10px;
 }
 
-footer p {
+.other-page-footer p {
     margin: 5px 0;
 }
 
